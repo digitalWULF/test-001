@@ -1,0 +1,23 @@
+{
+    "name": "digitalwolf/mediatech_test",
+    "description": "test task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Yakovlev",
+            "email": "support@masterness.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Engine\\": "Engine/"
+        }
+    },
+    "require": {
+        "klein/klein": "dev-master",
+        "mtymek/mini-url": "dev-master",
+        "cache/redis-adapter": "^1.1@dev"
+    }
+}
