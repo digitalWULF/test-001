@@ -34,7 +34,7 @@ elseif ($linkService->getCurrentRequestMethod() === \Engine\lib\LinkService::GET
         echo $e->getMessage();
     }
     if (isset($fullUrl) && $fullUrl)
-        header($fullUrl, true, 301);
+        header('Location:'.$fullUrl, true, 301);
     else
         exit;
 }

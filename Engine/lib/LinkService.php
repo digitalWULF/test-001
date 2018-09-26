@@ -40,9 +40,9 @@ class LinkService
 
     public function getFullLink()
     {
-        $link = $this->fullUrl();
+        $fullurl = $this->fullUrl();
         try {
-            if ($url = $this->redisCache->checkRedisCache($link)) {
+            if ($url = $this->redisCache->checkRedisCache($fullurl)) {
                 return $url;
             }
             $link = $this->linkProcessor->expand($_SERVER['REQUEST_URI']);
@@ -51,7 +51,7 @@ class LinkService
                 throw new cacheException("Ой... Не могу найти такую сылку :(", 404);
             }
             $fullLink = $link->getLongUrl();
-            $this->redisCache->setRedisCache($link, $fullLink);
+            $this->redisCache->setRedisCache($fullurl, $fullLink);
             return $fullLink;
         } catch (cacheException $e) {
             echo 'Возникла проблема. Сообщение: '.$e->getMessage().' Код: '.$e->getCode();
